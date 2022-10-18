@@ -8,7 +8,6 @@ import io.restassured.mapper.ObjectMapperType;
 import net.serenitybdd.core.steps.UIInteractions;
 import org.hamcrest.Matchers;
 
-
 import static net.serenitybdd.rest.SerenityRest.*;
 
 public class PetApiActions extends UIInteractions {
@@ -16,7 +15,7 @@ public class PetApiActions extends UIInteractions {
     @Given("Kitty is available in the pet store")
     public Long givenKittyIsAvailableInPetStore() {
 
-        Pet pet = new Pet("Kitty", "available");
+        Pet pet = new Pet("Kitty", "available", 8999656565888L);
 
         Long newId = given()
                 .baseUri("https://petstore.swagger.io")
@@ -37,4 +36,13 @@ public class PetApiActions extends UIInteractions {
         then().body("name", Matchers.equalTo("Kitty"));
     }
 
+    @Then("I delete the pet and verify that the pet is deleted: {0}")
+    public void iDeleteThePetAndVerifyThatThePetIsDeleted(Long id) {
+        // deleting the pet
+        when().delete("/" + id);
+        //if delete is successful the status code needs to be 200
+        then().body("code", Matchers.equalTo(200));
+
+
+    }
 }

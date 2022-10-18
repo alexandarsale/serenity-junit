@@ -15,6 +15,7 @@ public class WhenFetchingAlreadyAvailablePet {
         newPetId = petApi.givenKittyIsAvailableInPetStore();
         petApi.whenIAskForAPetWithId(newPetId);
         petApi.thenISeeKittyAsResult();
+        petApi.iDeleteThePetAndVerifyThatThePetIsDeleted(newPetId);
 
     }
 }
