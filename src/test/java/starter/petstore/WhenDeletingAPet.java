@@ -5,16 +5,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class WhenFetchingAlreadyAvailablePet {
+public class WhenDeletingAPet {
 
     Long newPetId = null;
     PetApiActions petApi;
 
     @Test
-    public void fetchAlreadyAvailablePet(){
+    public void deletePetFromStore(){
         newPetId = petApi.givenKittyIsAvailableInPetStore();
         petApi.whenIAskForAPetWithId(newPetId);
         petApi.thenISeeKittyAsResult();
+        petApi.iDeleteThePetAndVerifyThatThePetIsDeleted(newPetId);
     }
-
 }

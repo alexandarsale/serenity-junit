@@ -42,7 +42,6 @@ public class PetApiActions extends UIInteractions {
         when().delete("/" + id);
         //if delete is successful the status code needs to be 200
         then().body("code", Matchers.equalTo(200));
-
-
     }
+
 }
