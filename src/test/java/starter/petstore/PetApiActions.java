@@ -1,5 +1,6 @@
 package starter.petstore;
 
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +10,6 @@ import net.serenitybdd.core.steps.UIInteractions;
 import org.hamcrest.Matchers;
 
 import static net.serenitybdd.rest.SerenityRest.*;
-
 public class PetApiActions extends UIInteractions {
 
     @Given("Kitty is available in the pet store")
@@ -40,8 +40,7 @@ public class PetApiActions extends UIInteractions {
     public void iDeleteThePetAndVerifyThatThePetIsDeleted(Long id) {
         // deleting the pet
         when().delete("/" + id);
-        //if delete is successful the status code needs to be 200
-        then().body("code", Matchers.equalTo(200));
+        //if delete is successful the "message" in the  response body needs to be 8999656565888
+        then().body("message", Matchers.equalTo("8999656565888"));
     }
-
 }

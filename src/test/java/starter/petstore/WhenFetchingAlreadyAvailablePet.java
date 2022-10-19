@@ -16,5 +16,4 @@ public class WhenFetchingAlreadyAvailablePet {
         petApi.whenIAskForAPetWithId(newPetId);
         petApi.thenISeeKittyAsResult();
     }
-
 }
