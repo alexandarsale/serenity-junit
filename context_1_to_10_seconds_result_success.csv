@@ -1,2 +1,2 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"When deleting a pet","Delete pet from store","SUCCESS","2022-10-19T18:55:19.742119822Z[Etc/UTC]","0.0","4.58"
+"When fetching already available pet","Fetch already available pet","SUCCESS","2022-10-23T15:51:03.718074272Z[Etc/UTC]","0.0","4.35"
