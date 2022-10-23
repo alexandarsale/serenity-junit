@@ -12,6 +12,7 @@ import org.hamcrest.Matchers;
 import static net.serenitybdd.rest.SerenityRest.*;
 public class PetApiActions extends UIInteractions {
 
+    private final Long petId = 8999656565888L;
     @Given("Kitty is available in the pet store")
     public Long givenKittyIsAvailableInPetStore() {
 
@@ -41,6 +42,6 @@ public class PetApiActions extends UIInteractions {
         // deleting the pet
         when().delete("/" + id);
         //if delete is successful the "message" in the  response body needs to be 8999656565888
-        then().body("message", Matchers.equalTo("8999656565888"));
+        then().body("message", Matchers.equalTo(petId.toString()));
     }
 }
